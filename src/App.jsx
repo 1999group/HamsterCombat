@@ -6,12 +6,6 @@ const App = () => {
   const [coins, setCoins] = useState(0);
   const [count, setCount] = useState(0);
 
-  // const handleclick = () => {
-  //   setCoins((coin) => coin += 1)
-  //    if (coins === 10) {
-  //   setCoins((coin) => coin += 5)
-  //    }
-  // }
   return (
     <div className=" bg-gray-900">
       <div className="container mx-auto w-[85%]">
