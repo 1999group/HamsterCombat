@@ -3,8 +3,18 @@ import { AiOutlineDollar } from "react-icons/ai";
 import coin from "./assets/Group 8.png";
 import bekzod from "./assets/Group 24.png";
 const App = () => {
-  const [coins, setCoins] = useState(0);
+  const [coins, setCoins] = useState(1);
   const [count, setCount] = useState(0);
+
+  function hamsterClicl() {
+    setCount((prev) => {
+      const newValue = prev + coins;
+      if (newValue >= 100 && coins === 1) {
+        setCoins(5);
+      }
+      return newValue;
+    });
+  }
 
   return (
     <div className=" bg-gray-900">
@@ -28,8 +38,7 @@ const App = () => {
                 Coins to level up
               </p>
               <span className="flex justify-center items-center gap-2 text-white font-bold ">
-                <AiOutlineDollar color="yellow" />
-                {coins}
+                <AiOutlineDollar color="yellow" />0
               </span>
             </li>
             <li className="flex flex-col gap-5 bg-gray-700 items-center w-[250px] p-3 rounded-2xl ">
@@ -38,19 +47,18 @@ const App = () => {
               </p>
               <span className="flex justify-center items-center gap-2 text-white font-bold ">
                 <AiOutlineDollar color="yellow" />
-                {coins}
               </span>
             </li>
           </ul>
-
           <main>
             <section>
               <div className="flex items-center gap-5 justify-center mt-[50px]">
                 <img className="w-[100px]" src={coin} alt="" />
-                <p className="text-white text-[50px] font-bolder">{coins}</p>
+                <p className="text-white text-[50px] font-bolder">{count}</p>
               </div>
               <div className="flex items-center justify-center mt-10">
                 <img
+                  onClick={hamsterClicl}
                   className="active:scale-[1.1] active:shadow active:transition-all"
                   src={bekzod}
                   alt=""
